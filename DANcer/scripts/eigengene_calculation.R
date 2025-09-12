@@ -27,10 +27,11 @@ if(dim(vst_filtered)[1] < length(moduleColors)){
     fill <- as.data.frame(matrix(min(vstcounts),  length(missing_genes), dim(vstcounts)[2]), row.names = missing_genes)
     colnames(fill) <- colnames(vstcounts)
     vst_filled <- rbind(vstcounts, fill)
-    counts_module_ordered <- vst_filled[rownames(vst_filled) %in% names(moduleLabels),]
+    counts_module_ordered <- vst_filled[names(moduleLabels),]
     vst_eigen <- moduleEigengenes(t(counts_module_ordered),moduleColors, grey = FALSE)
 }else{
-    vst_eigen = moduleEigengenes(t(as.matrix(vst_filtered)),moduleColors,grey=FALSE)
+    counts_module_ordered <- vst_filtered[names(moduleLabels),]
+    vst_eigen = moduleEigengenes(t(as.matrix(counts_module_ordered)),moduleColors,grey=FALSE)
 }
 
 vst_MEs = vst_eigen[["eigengenes"]]
