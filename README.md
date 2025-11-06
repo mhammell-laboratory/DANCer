@@ -1,5 +1,5 @@
 # Deep layer ALS Neural network Classifier (DANCer)
-Version 1.0
+Version 1.0.1
 
 DANCer takes RNA-seq data from postmortem ALS cortex tissues and classifies them to the three ALS molecular subtypes described in [Tam et al 2019](https://pubmed.ncbi.nlm.nih.gov/31665631/). This is achieved by converting variance stabilized transformed (VST) counts data to WGCNA module eigengene values, then running them through a trained neural network for ALS subtype assignment. For more details, please refer to the publication in the citation section.
 
